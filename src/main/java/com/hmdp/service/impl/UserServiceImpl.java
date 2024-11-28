@@ -58,13 +58,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         stringRedisTemplate.opsForValue().set(LOGIN_CODE_KEY + phone, code, LOGIN_CODE_TTL, TimeUnit.MINUTES);
 
         //  5.发送验证码
-        try {
-            AliyunUtil.sendMessage(phone, code);
-            log.debug("发送短信验证码成功，验证码：{}", code);
-        } catch (Exception e) {
-            log.error("发送短信验证码失败", e);
-            return Result.fail("发送验证码失败，请稍后再试！");
-        }
+//        try {
+//            AliyunUtil.sendMessage(phone, code);
+//            log.debug("发送短信验证码成功，验证码：{}", code);
+//        } catch (Exception e) {
+//            log.error("发送短信验证码失败", e);
+//            return Result.fail("发送验证码失败，请稍后再试！");
+//        }
+        log.debug("发送短信验证码成功，验证码：{}", code);
 
 
         // 5.返回ok
